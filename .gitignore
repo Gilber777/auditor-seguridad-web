@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+/lib/
+/lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+ENV/
+.env
+.env.local
+.env.*.local
+
+# Node & Next.js
+node_modules/
+auditor-seguridad-web/node_modules/
+.next/
+auditor-seguridad-web/.next/
+out/
+auditor-seguridad-web/out/
+*.tsbuildinfo
+auditor-seguridad-web/*.tsbuildinfo
+next-env.d.ts
+
+# IDE & OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Render
+.render/

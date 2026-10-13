@@ -1,0 +1,26 @@
+# REGIONAL RULES: Auditor de Seguridad Web Project
+
+## Tech Stack
+
+- Framework: Next.js 14+ (App Router)
+
+- Language: TypeScript
+
+- Styling: Tailwind CSS
+
+- Icons: Lucide-React
+
+## Architectural Principles
+
+- Clean Code, Component-driven architecture.
+
+- All API routes must handle exceptions gracefully and return structured JSON.
+
+- Never write hardcoded API keys or secrets in source files. Always use process.env.
+
+## Security Constraints
+
+- Do not execute system commands using sudo.
+
+- Sanitize all user inputs before processing or rendering.
+

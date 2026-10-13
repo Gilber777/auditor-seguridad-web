@@ -1,0 +1,38 @@
+services:
+  # ---------------------------------------------------------------------------
+  # Servicio 1: Backend API en FastAPI (Python 3.12)
+  # ---------------------------------------------------------------------------
+  - type: web
+    name: auditor-seguridad-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.4
+      - key: ALLOWED_ORIGINS
+        value: "*"
+
+  # ---------------------------------------------------------------------------
+  # Servicio 2: Frontend Interactivo en Next.js 14 (Node.js 20)
+  # ---------------------------------------------------------------------------
+  - type: web
+    name: auditor-seguridad-web
+    runtime: node
+    rootDir: auditor-seguridad-web
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start -- -p $PORT
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.14.0
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: auditor-seguridad-api
+          property: host
